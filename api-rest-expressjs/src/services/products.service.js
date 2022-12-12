@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker') ;
+const { boom } require = ('@hapi/boom')
 
 
 class ProductsService {
@@ -46,7 +47,7 @@ class ProductsService {
     const index = this.products.findIndex(item => item.id === id);
 
     if (index === -1 ) {
-      throw new Error('product not found');
+      throw boom.notFound('product not found');
     }
     const products = this.products[index];
     this.products[index] = {
@@ -61,7 +62,7 @@ class ProductsService {
     const index = this.products.findIndex(item => item.id === id);
 
     if (index === -1 ) {
-      throw new Error('product not found');
+      throw boom.notFound('product not found');
     }
 
     this.products.splice(index,1);
