@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
   res.json(products);
 })
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const product = await service.findOne(id);

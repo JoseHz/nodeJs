@@ -1,8 +1,8 @@
-const { urlencoded } = require('express');
 const express = require('express');
+const { urlencoded } = require('express');
 const path = require('path');
 
-const { logErrors, errorHandler } = require('./middleware/error.handle')
+const {logError, errorHandler} = require('./middleware/error.handler')
 
 //inicializations
 const app = express();
@@ -15,7 +15,7 @@ app.set('port', process.env.PORT || 3000);
 //middlewares
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(logErrors);
+app.use(logError);
 app.use(errorHandler);
 
 //routes
